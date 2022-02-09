@@ -7,13 +7,15 @@ Auth::routes();
 
 Route::get('/register', 'Auth\RegisterController@register')->name('register');
 Route::post('/register', 'Auth\RegisterController@create');
-
- 
-
 Route::get('/', 'HomeController@index');
 
+
 //MODULO DE EMPRESA
-Route::get('/usuario', 'HomeController@login_empresa')->name('homex');
+Route::get('/cancha/{id}', 'ReservasCanchasController@cancha')->name('cancha');
+Route::get('/cancha/busqueda/{cancha}/{fecha}', 'ReservasCanchasController@busqueda');
+ 
+
+
 
 
 

@@ -210,95 +210,27 @@
 
 
                             <li class="nav-item">
-                                <a href="/admin/actas"
+                                <a href="/"
                                     class="{{ Request::path() === 'productos' ? 'nav-link active' : 'nav-link' }}">
                                     
                                     <i class="nav-icon fas fa-plus-circle"></i>
                                     <p>
                                         Actas
-                                        <?php use App\Acta;
-$count = Acta::all()->count();?>
-                                        <span class="right badge badge-danger">{{ $count ?? '0' }}</span>
+                                        
+                                        <span class="right badge badge-danger">0</span>
                                     </p>
                                 </a>
                             </li>
 
+ 
 
-
-
-
-                            <li class="nav-item">
-                                <a href="/admin/empresas"
-                                    class="{{ Request::path() === 'empresas' ? 'nav-link active' : 'nav-link' }}">
-
-                                    <i class="nav-icon fas fa-university"></i>
-                                    <p>
-                                        Empresas
-                                        <?php use App\Empresa;
-$empresa_count = Empresa::all()->count();?>
-                                        <span class="right badge badge-danger">{{ $empresa_count ?? '0' }}</span>
-                                    </p>
-                                </a>
-                            </li>
-
-
-                            <li class="nav-item">
-                                <a href="/admin/productos"
-                                    class="{{ Request::path() === 'productos' ? 'nav-link active' : 'nav-link' }}">
-                                    
-                                    <i class="nav-icon fas fa-cubes"></i>
-                                    <p>
-                                        Productos
-                                        <?php use App\Producto;
-$producto_count = Producto::all()->count();?>
-                                        <span class="right badge badge-danger">{{ $producto_count ?? '0' }}</span>
-                                    </p>
-                                </a>
-                            </li>
+        
                             
  
 
  
 
-
-
-                            <li class="{{ (Request::path() == 'admin/racks' or Request::path() == 'admin/casillas')  ? 'nav-item menu-open' : 'nav-item' }}" >
-                                <a href="/admin/casillas" class="nav-link" >
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>
-                                    Almacen
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                
-                                <li class="nav-item">
-                                    <a href="/admin/racks" class="{{ Request::path() === 'admin/racks' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <?php use App\Rack;
-                                    $rack_count = Rack::all()->count();?>
-                                    <p>Racks </p>
-                                    <span class="right badge badge-danger">{{ $rack_count ?? '0' }}</span>
-                                    </a>
-                                </li>
-
-
-
-                                <li class="nav-item">
-                                    <a href="/admin/casillas" class="{{ Request::path() === 'admin/casillas' ? 'nav-link active' : 'nav-link' }}">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <?php use App\RackCasillas;
-                                    $casillas_count = RackCasillas::all()->count();?>
-                                    <p>Casillas </p>
-                                    <span class="right badge badge-danger">{{ $casillas_count ?? '0' }}</span>
-                                    </a>
-                                </li>
-
-
-                                </ul>
-                            </li>
-
-
+ 
 
                             
 
