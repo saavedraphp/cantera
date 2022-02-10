@@ -55,11 +55,11 @@
             minDate: new Date(),
             onSelect: function(date) {
                 var fecha = date.split('/');
-                window.location.href = 'http://127.0.0.1:8080/cancha/busqueda' + '/' + $("#datepicker").data('cancha') +
-                '/' + fecha[0] +
-                '-' + fecha[1] +
+                window.location.href = 'http://127.0.0.1:8080/cancha/fecha' + '/' + $("#datepicker").data('cancha') +
+                '/' + fecha[1] +
+                '-' + fecha[0] +
                 '-' + fecha[2];
-            }
+            }   
         });
 
         $(".datepicker").datepicker();

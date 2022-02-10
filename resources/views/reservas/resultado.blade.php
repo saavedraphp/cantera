@@ -45,7 +45,7 @@
                 <div class="container-title text-center">
                     <h4>{{$fecha['dia']}}</h4>
                     <h4>DIA: {{ date('d/m/Y',strtotime($fecha['fecha']))}} </h4>
-                    <h4>Cancha 1</h4>
+                    <h4>Cancha {{$tipo_cancha}}-</h4>
                 </div>
 
              
@@ -70,7 +70,13 @@
                         
                             <tr>
                                 <td>09:00 - 10:00</td>
-                                <td><button class="btn btn-success"  >Reservar</button></td>
+                                <td>
+                                    <?php
+                                    $url = 'http://127.0.0.1:8080/cancha/reservar/'.$tipo_cancha.'/12-13';
+                                    ?>
+                                     <a href="{{route('reserva',[$tipo_cancha,$fecha['fecha'],3])}}" title="Reservar" class="btn btn-success">Reservar</a>
+
+                                </td>
                             </tr>                            
                         </tbody>
                     </table>

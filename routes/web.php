@@ -12,7 +12,9 @@ Route::get('/', 'HomeController@index');
 
 //MODULO DE EMPRESA
 Route::get('/cancha/{id}', 'ReservasCanchasController@cancha')->name('cancha');
-Route::get('/cancha/busqueda/{cancha}/{fecha}', 'ReservasCanchasController@busqueda');
+ 
+Route::get('/cancha/fecha/{cancha}/{fecha}', 'ReservasCanchasController@buscarFecha');
+Route::get('/cancha/reservar/{cancha}/{fecha}/{hora}', 'ReservasCanchasController@reservarCancha')->name('reserva');
  
 
 

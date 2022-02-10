@@ -12,12 +12,12 @@ class ReservasCanchasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function busqueda($tipo_cancha,$fecha)
+    public function buscarFecha($tipo_cancha,$fecha)
     {   $fecha = explode("-",$fecha);
         
         for ($i=0; $i < 4; $i++) { 
-            $array_fechas[$i]['dia'] = date('D',mktime(0, 0, 0, $fecha[0]  , ($fecha[1]+$i), $fecha[2]));
-            $array_fechas[$i]['fecha'] = date('Y-m-d',mktime(0, 0, 0, $fecha[0]  , ($fecha[1]+$i), $fecha[2]));
+            $array_fechas[$i]['dia'] = date('D',mktime(0, 0, 0, $fecha[1]  , $fecha[0]+$i, $fecha[2]));
+            $array_fechas[$i]['fecha'] = date('d-m-Y',mktime(0, 0, 0, $fecha[1]  , ($fecha[0]+$i), $fecha[2]));
          }
         
         //$array_fechas[0] = mktime(0, 0, 0, $fecha[0]  , $fecha[1]+1, $fecha[2]);
@@ -31,9 +31,12 @@ class ReservasCanchasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function reservarCancha($tipo_cancha,$fechaReserva,$hora)
     {
-        //
+
+        return view('reservas.reserva_cancha',['tipo_cancha' => $tipo_cancha,'fecha' => $fechaReserva, 'hora' => $hora]);
+
+         
     }
 
     /**
