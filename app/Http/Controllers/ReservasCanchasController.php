@@ -13,16 +13,36 @@ class ReservasCanchasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function buscarFecha($tipo_cancha,$fecha)
-    {   $fecha = explode("-",$fecha);
+    {   
+
         
-        for ($i=0; $i < 4; $i++) { 
-            $array_fechas[$i]['dia'] = date('D',mktime(0, 0, 0, $fecha[1]  , $fecha[0]+$i, $fecha[2]));
+        $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+
+        $hora_inicio = 7;
+        $hora_fin = 24;
+        $fecha_inicio = date('Y-m-d', strtotime($fecha));
+
+        $cantidad_dias = 4;
+
+        $fecha = explode("-",$fecha);
+
+        $fecha_fin = date('Y-m-d',mktime(0, 0, 0, $fecha[1]  , ($fecha[0]+$cantidad_dias), $fecha[2]));
+        
+    
+         
+        
+
+        for ($i=0; $i < $cantidad_dias; $i++) { 
+            $numero_semana = date('w',mktime(0, 0, 0, $fecha[1]  , $fecha[0]+$i, $fecha[2]));
+            $array_fechas[$i]['dia']  = $diassemana[$numero_semana];
             $array_fechas[$i]['fecha'] = date('d-m-Y',mktime(0, 0, 0, $fecha[1]  , ($fecha[0]+$i), $fecha[2]));
          }
         
-        //$array_fechas[0] = mktime(0, 0, 0, $fecha[0]  , $fecha[1]+1, $fecha[2]);
-        
-        return view('reservas.resultado',['tipo_cancha' => $tipo_cancha,'fechas' => $array_fechas]);
+        $reservasCanchas = ReservasCanchas::where('fecha_registro','=',$fecha_inicio);
+         
+        return view('reservas.resultado',['tipo_cancha' => $tipo_cancha,'fechas' => 
+        $array_fechas,'hora_inicio' =>$hora_inicio,'hora_fin' => $hora_fin,
+        'reservasCanchas' =>$reservasCanchas]);
 
     }
 

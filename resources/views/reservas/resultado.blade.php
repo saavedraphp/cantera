@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
+<?php
  
 
- 
+?>
+
+
+ <?php
+//dd($reservasCanchas);
+ ?>
 
 <div class="container">
 
@@ -56,8 +61,25 @@
                             <th>Estado</th>
                         </tr>
                         </thead>
-
+                        
                         <tbody>
+                        <?php
+                            for($horas=7;$horas<24;$horas++)
+                            {  
+                                $aux = $horas;
+                       
+                                $hora1 = str_pad($aux, 2, "0", STR_PAD_LEFT);
+                                $hora2 = str_pad(++$aux, 2, "0", STR_PAD_LEFT);
+
+                                echo $hora1.':00 - '.$hora2.':00';
+                                echo '<br>';
+                       
+                               /* echo ($horas<10 ? '0'.$horas:$horas).':00 - '.(++$aux<10?'0'.$aux:$aux).':00';
+                                echo '<br>';
+                                */
+                            }    
+                        ?>
+                            
                             <tr>
                                 <td>07:00 - 08:00</td>
                                 <td><button class="btn " disabled="disabled">bruno</button></td>
@@ -79,6 +101,8 @@
                                 </td>
                             </tr>                            
                         </tbody>
+
+
                     </table>
 
 

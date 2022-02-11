@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 09-02-2022 a las 21:20:37
+-- Tiempo de generación: 11-02-2022 a las 19:57:06
 -- Versión del servidor: 5.7.31
 -- Versión de PHP: 7.3.21
 
@@ -51,6 +51,30 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL,
   KEY `password_resets_email_index` (`email`(191))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservas`
+--
+
+DROP TABLE IF EXISTS `reservas`;
+CREATE TABLE IF NOT EXISTS `reservas` (
+  `id_reserva` int(11) NOT NULL AUTO_INCREMENT,
+  `cancha_id` int(11) NOT NULL,
+  `usuario_id` int(11) DEFAULT NULL,
+  `fecha_reserva` varchar(45) DEFAULT NULL,
+  `hora_inicio` varchar(45) DEFAULT NULL,
+  `hora_fin` varchar(45) DEFAULT NULL,
+  `nombre` varchar(45) DEFAULT NULL,
+  `correo` varchar(45) DEFAULT NULL,
+  `telefono` varchar(45) DEFAULT NULL,
+  `dni` varchar(45) DEFAULT NULL,
+  `created_at` varchar(45) DEFAULT NULL,
+  `updated_at` varchar(45) DEFAULT NULL,
+  `deleted_at` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_reserva`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
