@@ -10,6 +10,6 @@ class ReservasCanchas extends Model
 {
     use SoftDeletes;
        
-    protected $table = "reservas_canchas";
+    protected $table = "reservas";
     protected $primaryKey = 'id';
 }

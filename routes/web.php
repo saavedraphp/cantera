@@ -11,6 +11,8 @@ Route::get('/', 'HomeController@index');
 
 
 //MODULO DE EMPRESA
+Route::resource('cancha/reservar', 'ReservasCanchasController');
+
 Route::get('/cancha/{id}', 'ReservasCanchasController@cancha')->name('cancha');
  
 Route::get('/cancha/fecha/{cancha}/{fecha}', 'ReservasCanchasController@buscarFecha');

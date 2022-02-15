@@ -43,14 +43,17 @@
     </style>
 
         <div class="row">
- 
-        @foreach($fechas as $fecha)
+        <?php
+        foreach($array_fecha_hora as  $key => $value)
+        {  
+        ?>                    
+                             
 
         <div class="container-listado-horas">
                 <div class="container-title text-center">
-                    <h4>{{$fecha['dia']}}</h4>
-                    <h4>DIA: {{ date('d/m/Y',strtotime($fecha['fecha']))}} </h4>
-                    <h4>Cancha {{$tipo_cancha}}-</h4>
+                    <h4>{{$fechas[$key]['dia']}}</h4>
+                    <h4>DIA: {{ date('d/m/Y',strtotime($fechas[$key]['fecha']))}} </h4>
+                    <h4>Cancha {{$tipo_cancha}}</h4>
                 </div>
 
              
@@ -64,42 +67,42 @@
                         
                         <tbody>
                         <?php
-                            for($horas=7;$horas<24;$horas++)
-                            {  
-                                $aux = $horas;
-                       
-                                $hora1 = str_pad($aux, 2, "0", STR_PAD_LEFT);
-                                $hora2 = str_pad(++$aux, 2, "0", STR_PAD_LEFT);
+                          //  var_dump($array_fecha_hora);
+   
+                                for ($i=0; $i < count($value); $i++) { 
+                                    $hora_texto = $value[$i]['hora_inicio'].':00 - '.$value[$i]['hora_fin'].':00';
+                                    
+                                ?>
+                                    @if($value[$i]['disponible'] == 'TRUE')
 
-                                echo $hora1.':00 - '.$hora2.':00';
-                                echo '<br>';
-                       
-                               /* echo ($horas<10 ? '0'.$horas:$horas).':00 - '.(++$aux<10?'0'.$aux:$aux).':00';
-                                echo '<br>';
-                                */
-                            }    
+                                    <tr>
+                                        <td>{{$hora_texto}}</td>
+                                        <td>
+                                            <?php
+                                            $url = 'http://127.0.0.1:8080/cancha/reservar/'.$tipo_cancha.'/12-13';
+                                            ?>
+                                            <a href="{{route('reserva',[$tipo_cancha,$value[$i]['fecha'],$value[$i]['hora_inicio'].'-'.$value[$i]['hora_fin']])}}" title="Reservar" class="btn btn-success">Reservar</a>
+
+                                        </td>
+                                    </tr>  
+
+                                    @else
+                                    <tr>
+                                        <td>{{$hora_texto}}</td>
+                                        <td title="{{$value[$i]['nombre']}}"><button class="btn " disabled="disabled">{{substr($value[$i]['nombre'],0,10)}}</button></td>
+                                    </tr>
+                                    @endif
+                
+                                
+                                    
+                               
+                               <?php
+                                }
+                                
+                  
                         ?>
                             
-                            <tr>
-                                <td>07:00 - 08:00</td>
-                                <td><button class="btn " disabled="disabled">bruno</button></td>
-                            </tr>
-                            
-                            <tr>
-                                <td>08:00 - 09:00</td>
-                                <td><button class="btn btn-success" disabled="disabled">Reservar</button></td>
-                            </tr>
-                        
-                            <tr>
-                                <td>09:00 - 10:00</td>
-                                <td>
-                                    <?php
-                                    $url = 'http://127.0.0.1:8080/cancha/reservar/'.$tipo_cancha.'/12-13';
-                                    ?>
-                                     <a href="{{route('reserva',[$tipo_cancha,$fecha['fecha'],3])}}" title="Reservar" class="btn btn-success">Reservar</a>
-
-                                </td>
-                            </tr>                            
+                          
                         </tbody>
 
 
@@ -109,7 +112,9 @@
                 
             </div>
             
-            @endforeach
+          <?php
+            }
+          ?>
 
  
  
