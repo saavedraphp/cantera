@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<?php
- 
-
-?>
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 
  <?php
@@ -12,6 +9,13 @@
  ?>
 
 <div class="container">
+
+    <ol class="breadcrumb">
+        <li><a href="{{url('/')}}">Paso 1</a></li>
+        <li><a href="{{route('cancha',$tipo_cancha)}}">Paso 2</a></li>
+        <li class="active">Paso 3</li>
+
+     </ol>
 
     <div class="row" >
         <div class="col-md-12" style="text-align: center;">
@@ -79,7 +83,7 @@
                                         <td>{{$hora_texto}}</td>
                                         <td>
                                             <?php
-                                            $url = 'http://127.0.0.1:8080/cancha/reservar/'.$tipo_cancha.'/12-13';
+                                            $url = 'http://cantera.boticalosprecursores.com/cancha/reservar/'.$tipo_cancha.'/12-13';
                                             ?>
                                             <a href="{{route('reserva',[$tipo_cancha,$value[$i]['fecha'],$value[$i]['hora_inicio'].'-'.$value[$i]['hora_fin']])}}" title="Reservar" class="btn btn-success">Reservar</a>
 

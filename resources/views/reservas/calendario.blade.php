@@ -10,10 +10,17 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.12.4.js"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
  
 
 <div class="container">
+
+    <ol class="breadcrumb">
+        <li><a href="{{url('/')}}">Paso 1</a></li>
+        <li class="active">Paso 2</li>
+    </ol>
 
     <div class="row" >
         <div class="col-md-12" style="text-align: center;">
@@ -55,7 +62,7 @@
             minDate: new Date(),
             onSelect: function(date) {
                 var fecha = date.split('/');
-                window.location.href = 'http://127.0.0.1:8080/cancha/fecha' + '/' + $("#datepicker").data('cancha') +
+                window.location.href = '{{ env("MY_URL") }}/cancha/fecha' + '/' + $("#datepicker").data('cancha') +
                 '/' + fecha[1] +
                 '-' + fecha[0] +
                 '-' + fecha[2];

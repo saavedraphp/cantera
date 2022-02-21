@@ -1,0 +1,119 @@
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.container-header {
+  border-bottom: 2px solid #afafaf;
+  padding-bottom: 20px;
+}
+.container-title h2 {
+  font-size: 60px;
+  font-weight: bold;
+  margin: 25px 0 20px 0;
+}
+.container-title h4 {
+  font-weight: bold;
+}
+.container-img-cancha {
+  margin-top: 100px;
+}
+.container-img-cancha img {
+  width: 540px;
+}
+.container-img-cancha span {
+  font-size: 18px;
+  margin-top: 15px;
+}
+#datepicker {
+  margin-top: 50px;
+}
+#datepicker .ui-datepicker {
+  width: 90%;
+  margin: auto;
+}
+#datepicker .ui-datepicker td span,
+#datepicker .ui-datepicker td a {
+  text-align: center;
+  padding: 1em 0;
+}
+.table-horarios {
+  display: inline-block;
+  margin: 50px auto;
+  width: auto;
+}
+.table-horarios td,
+.table-horarios th {
+  vertical-align: middle !important;
+  padding: 5px 10px !important;
+  text-align: center;
+}
+.form-reserva {
+  margin-top: 50px;
+}
+.form-horizontal .control-label {
+  text-align: left !important;
+}
+.error {
+  color: red;
+}
+.table-reservaciones {
+  margin-top: 50px !important;
+}
+.container-btn-cerrar-sesion {
+  margin-top: 10px;
+}
+.logo {
+  text-align: center !important;
+  margin: auto;
+}
+.row {
+  margin: 0;
+}
+.btn.btn-danger.pull-right {
+  margin-top: 10px;
+}
+@-moz-document url-prefix() {
+  fieldset {
+    display: table-cell;
+  }
+}
+.form-search {
+  margin: 10px 0;
+}
+.form-search .form-control {
+  width: 100%;
+}
+.container-listado-horas {
+  display: inline-block;
+}
+
+.icon-permanente-red{
+   color: #ff0000;
+ }
+
+.icon-permanente-green{
+  color: #008000;
+}
+
+
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.breadcrumb>.active {
+  color: #777;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+.breadcrumb>li+li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: "/\00a0";
+}

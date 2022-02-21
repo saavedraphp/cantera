@@ -207,7 +207,7 @@ function grabarActa()
 }
 
  
-  const url = '{{ env('MY_URL') }}';
+  const url = '{{ env("MY_URL") }}';
 </script>
 <script src="{{ asset('js/lista_productos.js') }}" ></script>
  

@@ -8,6 +8,7 @@ Auth::routes();
 Route::get('/register', 'Auth\RegisterController@register')->name('register');
 Route::post('/register', 'Auth\RegisterController@create');
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 
 //MODULO DE EMPRESA
@@ -87,3 +88,12 @@ Route::get('admin/ejemplos',function(){
 
         
 Route::get('rollback','PruebaController@index');
+
+
+Route::get('/clear', function() {
+
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    return "Cleared!";
+    });
